@@ -11,7 +11,7 @@ pipelines:
           script:
             - mvn -B package
           artifacts:
-            - starbux/target/**
+            - target/**
 
       - step:
           name: Push docker image to the Heroku
