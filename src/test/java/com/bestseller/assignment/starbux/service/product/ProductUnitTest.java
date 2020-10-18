@@ -11,6 +11,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.*;
@@ -78,7 +79,7 @@ public class ProductUnitTest {
 
     private Product buildProduct(Long id, ProductType productType, double price, String name) {
         return Product.builder().
-                price(BigDecimal.valueOf(price).setScale(2)).
+                price(BigDecimal.valueOf(price).setScale(2, RoundingMode.HALF_DOWN)).
                 productType(productType).
                 name(name).
                 id((long) id).
