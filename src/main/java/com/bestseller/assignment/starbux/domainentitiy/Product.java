@@ -1,9 +1,6 @@
 package com.bestseller.assignment.starbux.domainentitiy;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -18,6 +15,7 @@ import java.math.BigDecimal;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Product {
     @Id
     @GeneratedValue
@@ -27,4 +25,6 @@ public class Product {
     private ProductType productType;
 
     private BigDecimal price;
+
+    private String name;
 }

@@ -1,6 +1,6 @@
 package com.bestseller.assignment.starbux.domainentitiy;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -13,12 +13,17 @@ import java.util.List;
 @Entity(name = "shopping_cart")
 @Table(name = "shopping_cart")
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode
+@Builder
 public class Cart {
     @Id
     @GeneratedValue
     private Long id;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @Column(nullable = false)
     private List<OrderItem> items;
 
     private LocalDateTime localDateTime;
