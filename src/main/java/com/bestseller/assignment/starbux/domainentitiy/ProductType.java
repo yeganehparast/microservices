@@ -8,15 +8,36 @@ public enum ProductType {
     /**
      * If type of product is a drink
      */
-    DRINK("drink"),
+    DRINK(0, "drink"),
     /**
      * if the type of product is a topping
      */
-    TOPPING("topping");
+    TOPPING(1, "topping");
 
     private String type;
+    private int code;
 
-    ProductType (String type) {
+    ProductType(int code, String type) {
+        this.code = code;
         this.type = type;
     }
+
+    public static String getNameType(int code) {
+        switch (code) {
+            case 1:
+                return "topping";
+            default:
+                return "drink";
+        }
+    }
+
+    public static int getCode(String type) {
+        switch (type) {
+            case "topping":
+                return 1;
+            default:
+                return 0;
+        }
+    }
+
 }

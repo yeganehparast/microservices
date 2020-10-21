@@ -1,18 +1,23 @@
 package com.bestseller.assignment.starbux.service.product;
 
 import com.bestseller.assignment.starbux.domainentitiy.Product;
-import com.bestseller.assignment.starbux.service.exception.ProductNotFoundException;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.transaction.TransactionSystemException;
 
 /**
  * This interface defines the business methods for Product
  */
 public interface ProductService {
 
-    Product save(Product product);
+    Product save(Product product) throws DataIntegrityViolationException, TransactionSystemException;
 
-    Product update(Product product);
+    Product update(Product product) throws DataIntegrityViolationException, TransactionSystemException;
 
-    Product get(Long productId) throws ProductNotFoundException;
+    Product findByName(String name);
 
-    void delete(Long productId);
+    Product deleteByName(String name);
+
+    void deleteAll();
+
+    boolean existsByName(String name);
 }

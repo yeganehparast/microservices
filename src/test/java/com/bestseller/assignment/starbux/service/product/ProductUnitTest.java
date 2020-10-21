@@ -1,6 +1,5 @@
 package com.bestseller.assignment.starbux.service.product;
 
-import com.bestseller.assignment.starbux.dao.ProductDAO;
 import com.bestseller.assignment.starbux.domainentitiy.Product;
 import com.bestseller.assignment.starbux.domainentitiy.ProductType;
 import org.junit.jupiter.api.BeforeEach;
@@ -9,80 +8,60 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.stubbing.Answer;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.any;
+import static org.mockito.Mockito.when;
 
 /**
  * Mocking tests of CRUD methods for Product Entity
  */
 @ExtendWith(MockitoExtension.class)
-public class ProductUnitTest {
+class ProductUnitTest {
 
-    private ProductDAO productDAO;
+    private ProductService productService;
 
     @BeforeEach
-    public void init(@Mock ProductDAO productDAO) {
-        this.productDAO = productDAO;
-
-        lenient().doAnswer(invocationOnMock -> invocationOnMock.getArguments()[0]).
-                when(productDAO).save(any(Product.class));
-
-        lenient().doAnswer(invocationOnMock -> invocationOnMock.getArguments()[0]).
-                when(productDAO).delete(any(Product.class));
-
-        lenient().doAnswer(invocationOnMock -> invocationOnMock.getArguments()[0]).
-                when(productDAO).existsById(anyLong());
+    void init(@Mock ProductService productService) {
+        this.productService = productService;
     }
 
     @Test
-    @DisplayName("Tests creating a product/topping")
-    public void createProductTest() {
-        Product americano = buildProduct(1L, ProductType.DRINK, 1, "Americano");
-
-        Product caramelSyrup = buildProduct(1L, ProductType.TOPPING, .2, "Caramel Syrup");
-
-        Product americanoMocked = productDAO.save(americano);
-        assertNotNull(americanoMocked);
-
-        Product caramelSyrupMocked = productDAO.save(caramelSyrup);
-        assertNotNull(caramelSyrupMocked);
+    @DisplayName("Tests creating a product")
+    void createDrinkTest() {
+        //create a drink
+        long idAmericano = 12L;
+        when(productService.save(any(Product.class))).thenAnswer((Answer<Product>) invocationOnMock -> {
+            Product product = invocationOnMock.getArgument(0);
+            product.setId(idAmericano);
+            return product;
+        });
+        Product americano = new Product("Americano", ProductType.DRINK.ordinal(), BigDecimal.valueOf(2).setScale(2, RoundingMode.HALF_DOWN));
+        Product savedProductDrink = productService.save(americano);
+        assertNotNull(savedProductDrink);
+        assertEquals(idAmericano, savedProductDrink.getId());
+        assertEquals(americano.getPrice(), savedProductDrink.getPrice());
     }
 
     @Test
-    @DisplayName("Tests deleting a product/topping")
-    public void deleteProductTest() {
-        Product americano = buildProduct(1L, ProductType.DRINK, 1, "Americano");
-
-        Product americanoMocked = productDAO.save(americano);
-        assertNotNull(productDAO.save(americano));
-
-        productDAO.delete(americanoMocked);
-
-        System.out.println(productDAO.existsById(americano.getId()));
-    }
-
-    @Test
-    @DisplayName("Tests updating a product/topping")
-    public void updateProductTest() {
-
-    }
-
-    @Test
-    @DisplayName("Tests getting a product/topping")
-    public void getProductTest() {
-
-    }
-
-    private Product buildProduct(Long id, ProductType productType, double price, String name) {
-        return Product.builder().
-                price(BigDecimal.valueOf(price).setScale(2, RoundingMode.HALF_DOWN)).
-                productType(productType).
-                name(name).
-                id((long) id).
-                build();
+    @DisplayName("Tests creating a topping")
+    void createToppingTest() {
+        //create a topping
+        long idCaramelSyrup = 14L;
+        when(productService.save(any(Product.class))).thenAnswer((Answer<Product>) invocationOnMock -> {
+            Product product = invocationOnMock.getArgument(0);
+            product.setId(idCaramelSyrup);
+            return product;
+        });
+        Product sampleProduct = new Product("Caramel Syrup", ProductType.DRINK.ordinal(), BigDecimal.valueOf(2).setScale(2, RoundingMode.HALF_DOWN));
+        Product savedProductTopping = productService.save(sampleProduct);
+        assertNotNull(savedProductTopping);
+        assertEquals(idCaramelSyrup, savedProductTopping.getId());
+        assertEquals(sampleProduct.getPrice(), savedProductTopping.getPrice());
     }
 }

@@ -1,5 +1,6 @@
 package com.bestseller.assignment.starbux.exception;
 
+
 /**
  * General Exception class for Starbux application
  */

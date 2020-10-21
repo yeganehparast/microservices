@@ -24,7 +24,7 @@ public class BestsellerAssignmentApplication {
     public Docket docket() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.bestseller.assignment.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.bestseller.assignment.starbux.controller"))
                 .paths(PathSelectors.any())
                 .build()
                 .apiInfo(generateApiInfo());
