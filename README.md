@@ -12,6 +12,7 @@ Application is based on SpringBoot. The application is dockerized as well. Open 
 Heroku as well as Circle Ci. The link below redirects to deployed application on Heroku. A BitBucket repository is used to
 show the CI/CD practices as well.
 
+
 ###### 3- Tests
 
 This application is tested carefully. There are unit tests, mocking tests, integration test and endpoint tests available.
