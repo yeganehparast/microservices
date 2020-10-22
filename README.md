@@ -25,4 +25,7 @@ and simple logging approach inside the methods are available
 ###### 5- Assumption
 
 Products should be saved first. Then, an order can be taken place.
+Any string in the product type definition will be considered as drink.
+For making order, the important thing that should be filled is the product name and client name. The rest of the fields 
+are optional. 
 

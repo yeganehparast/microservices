@@ -1,5 +1,6 @@
 package com.bestseller.assignment.starbux.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -14,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @EqualsAndHashCode
 public class CartDTO {
-
+    @JsonProperty(required = true)
     private String clientName;
 
     private BigDecimal total;

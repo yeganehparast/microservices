@@ -1,5 +1,6 @@
 package com.bestseller.assignment.starbux.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 /**
@@ -12,6 +13,7 @@ import lombok.*;
 @EqualsAndHashCode
 public class OrderItemDTO {
 
+    @JsonProperty(required = true)
     private ProductDTO productDTO;
 
 }

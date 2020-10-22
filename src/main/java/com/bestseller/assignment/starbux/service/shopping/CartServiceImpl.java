@@ -54,15 +54,13 @@ public class CartServiceImpl implements CartService {
         log.info(String.format("Cart for %s is being saved.", cart.getClientName()));
         try {
             if (cart.getItems() != null && !cart.getItems().isEmpty()) {
-                Cart cartReady = calculateTicket(cart);
                 cart.getItems().forEach(orderItem -> {
                     if (orderItem.getProduct().getId() == null && productDAO.existsByName(orderItem.getProduct().getName())) {
                         orderItem.setProduct(productDAO.findByName(orderItem.getProduct().getName()).get());
                     }
-                    orderItem.setCart(cartReady);
                 });
-                Cart saved = cartDAO.save(cart);
-                return cartDAO.save(saved);
+                Cart cartReady = calculateTicket(cart);
+                return cartDAO.save(cartReady);
             } else {
                 log.error(String.format("Order items are empty. \n%s", cart.toString()));
                 throw new OrderItemNotFoundException(String.format("Order items are empty. \n%s", cart));

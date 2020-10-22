@@ -1,5 +1,6 @@
 package com.bestseller.assignment.starbux.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -13,9 +14,10 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @EqualsAndHashCode
 public class ProductDTO {
-
+    @JsonProperty(required = true)
     private String name;
 
+    @JsonProperty(required = true, defaultValue = "drink")
     private String productType;
 
     private BigDecimal price;
