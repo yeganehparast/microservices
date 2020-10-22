@@ -10,7 +10,7 @@ The design of application is based on REST design principles.
 
 Application is based on SpringBoot. The application is dockerized as well. Open Api is used. The application is deployed
 Heroku as well as Circle Ci. The link below redirects to deployed application on Heroku. A BitBucket repository is used to
-show the CI/CD practices as well.
+show the CI/CD practices as well. (please let me know if you need more details)
 
 
 ###### 3- Tests
@@ -29,3 +29,4 @@ Any string in the product type definition will be considered as drink.
 For making order, the important thing that should be filled is the product name and client name. The rest of the fields 
 are optional. 
 
+Thanks for your review in advance!
