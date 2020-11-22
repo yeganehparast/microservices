@@ -1,6 +1,6 @@
-package com.bestseller.assignment.starbux.dao;
+package com.microservice.assignment.starbux.dao;
 
-import com.bestseller.assignment.starbux.domainentitiy.OrderItem;
+import com.microservice.assignment.starbux.domainentitiy.OrderItem;
 import org.springframework.data.repository.CrudRepository;
 
 /**

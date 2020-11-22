@@ -1,12 +1,12 @@
-package com.bestseller.assignment.starbux;
+package com.microservice.assignment.starbux;
 
-import com.bestseller.assignment.starbux.converter.ProductConverter;
-import com.bestseller.assignment.starbux.domainentitiy.Product;
-import com.bestseller.assignment.starbux.domainentitiy.ProductType;
-import com.bestseller.assignment.starbux.dto.CartDTO;
-import com.bestseller.assignment.starbux.dto.ProductDTO;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.microservice.assignment.starbux.converter.ProductConverter;
+import com.microservice.assignment.starbux.domainentitiy.Product;
+import com.microservice.assignment.starbux.domainentitiy.ProductType;
+import com.microservice.assignment.starbux.dto.CartDTO;
+import com.microservice.assignment.starbux.dto.ProductDTO;
 
 import java.math.BigDecimal;
 import java.util.*;

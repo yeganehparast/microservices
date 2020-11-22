@@ -8,11 +8,11 @@
         <version>2.3.4.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.bestseller.assignment</groupId>
+    <groupId>com.microservice.assignment</groupId>
     <artifactId>starbux</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>Bestseller Assignment</name>
-    <description>This application is developed by Mehdi Yeganehparast for Bestseller hiring process.</description>
+    <name>Microservices</name>
+    <description>This application is developed by Mehdi Yeganehparast.</description>
 
     <properties>
         <java.version>1.8</java.version>

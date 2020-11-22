@@ -1,7 +1,7 @@
-package com.bestseller.assignment.starbux.service.product;
+package com.microservice.assignment.starbux.service.product;
 
-import com.bestseller.assignment.starbux.domainentitiy.Product;
-import com.bestseller.assignment.starbux.domainentitiy.ProductType;
+import com.microservice.assignment.starbux.domainentitiy.Product;
+import com.microservice.assignment.starbux.domainentitiy.ProductType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

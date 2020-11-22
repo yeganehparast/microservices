@@ -1,4 +1,4 @@
-package com.bestseller.assignment.starbux;
+package com.microservice.assignment.starbux;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,17 +14,17 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @EnableSwagger2
 @SpringBootApplication
-public class BestsellerAssignmentApplication {
+public class AssignmentApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(BestsellerAssignmentApplication.class, args);
+        SpringApplication.run(AssignmentApplication.class, args);
     }
 
     @Bean
     public Docket docket() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.bestseller.assignment.starbux.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.microservice.assignment.starbux.controller"))
                 .paths(PathSelectors.any())
                 .build()
                 .apiInfo(generateApiInfo());
@@ -32,9 +32,9 @@ public class BestsellerAssignmentApplication {
 
 
     private ApiInfo generateApiInfo() {
-        return new ApiInfoBuilder().title("BESTSELLER Backend Technical Assignment")
+        return new ApiInfoBuilder().title("Microservice Technical Assignment")
                 .description("This application is developed purposely to assess technical skills.")
-                .license("").licenseUrl("").version("1.0")
+                .license("Unlicensed").licenseUrl("http://unlicense.org").version("1.0")
                 .contact(
                         new Contact("Mehdi Yeganehparast",
                                 "https://www.linkedin.com/in/mehdi-yeganehparast/",

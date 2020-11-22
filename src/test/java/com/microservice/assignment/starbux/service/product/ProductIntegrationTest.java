@@ -1,7 +1,7 @@
-package com.bestseller.assignment.starbux.service.product;
+package com.microservice.assignment.starbux.service.product;
 
-import com.bestseller.assignment.starbux.domainentitiy.Product;
-import com.bestseller.assignment.starbux.service.exception.ProductNotFoundException;
+import com.microservice.assignment.starbux.domainentitiy.Product;
+import com.microservice.assignment.starbux.service.exception.ProductNotFoundException;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -10,7 +10,7 @@ import org.springframework.transaction.TransactionSystemException;
 
 import java.math.BigDecimal;
 
-import static com.bestseller.assignment.starbux.domainentitiy.ProductType.DRINK;
+import static com.microservice.assignment.starbux.domainentitiy.ProductType.DRINK;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**

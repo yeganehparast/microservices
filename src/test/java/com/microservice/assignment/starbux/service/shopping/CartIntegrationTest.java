@@ -1,10 +1,11 @@
-package com.bestseller.assignment.starbux.service.shopping;
+package com.microservice.assignment.starbux.service.shopping;
 
-import com.bestseller.assignment.starbux.domainentitiy.Cart;
-import com.bestseller.assignment.starbux.domainentitiy.OrderItem;
-import com.bestseller.assignment.starbux.domainentitiy.Product;
-import com.bestseller.assignment.starbux.domainentitiy.ProductType;
-import com.bestseller.assignment.starbux.service.product.ProductService;
+import com.microservice.assignment.starbux.TestUtils;
+import com.microservice.assignment.starbux.domainentitiy.Cart;
+import com.microservice.assignment.starbux.domainentitiy.OrderItem;
+import com.microservice.assignment.starbux.domainentitiy.Product;
+import com.microservice.assignment.starbux.domainentitiy.ProductType;
+import com.microservice.assignment.starbux.service.product.ProductService;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -17,7 +18,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import static com.bestseller.assignment.starbux.TestUtils.*;
 import static java.math.RoundingMode.HALF_DOWN;
 import static org.hibernate.validator.internal.util.Contracts.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -110,7 +110,7 @@ public class CartIntegrationTest {
         }
         BigDecimal defaultValue = new BigDecimal(0).setScale(2, HALF_DOWN);
         String name = RandomStringUtils.randomAlphabetic(5);
-        Map<String, Product> productMap = getProductMap();
+        Map<String, Product> productMap = TestUtils.getProductMap();
         if (saveProduct) {
             productMap.values().stream().forEach(product -> {
                 boolean exists = productService.existsByName(product.getName());
@@ -125,8 +125,8 @@ public class CartIntegrationTest {
         Cart cart = new Cart(name, defaultValue, defaultValue, defaultValue, new ArrayList<>());
         double total = 0;
         for (int i = 0; i < orderItemSize && total < sum; i++) {
-            Product drink = productMap.get(drinks.get((int) getRandomPrice(0, 4)));
-            Product topping = productMap.get(toppings.get((int) getRandomPrice(0, 4)));
+            Product drink = productMap.get(TestUtils.drinks.get((int) TestUtils.getRandomPrice(0, 4)));
+            Product topping = productMap.get(TestUtils.toppings.get((int) TestUtils.getRandomPrice(0, 4)));
             cart.getItems().add(new OrderItem(cart, drink));
             cart.getItems().add(new OrderItem(cart, topping));
             total = (BigDecimal.valueOf(total).add(drink.getPrice().add(topping.getPrice()))).doubleValue();

@@ -1,4 +1,4 @@
-package com.bestseller.assignment.starbux.util;
+package com.microservice.assignment.starbux.util;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;

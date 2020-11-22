@@ -1,4 +1,4 @@
-package com.bestseller.assignment.starbux.controller;
+package com.microservice.assignment.starbux.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

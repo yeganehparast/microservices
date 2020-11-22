@@ -1,4 +1,4 @@
-package com.bestseller.assignment.starbux.aspect;
+package com.microservice.assignment.starbux.aspect;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;

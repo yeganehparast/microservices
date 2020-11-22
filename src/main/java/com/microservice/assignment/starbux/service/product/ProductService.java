@@ -1,6 +1,6 @@
-package com.bestseller.assignment.starbux.service.product;
+package com.microservice.assignment.starbux.service.product;
 
-import com.bestseller.assignment.starbux.domainentitiy.Product;
+import com.microservice.assignment.starbux.domainentitiy.Product;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.transaction.TransactionSystemException;
 

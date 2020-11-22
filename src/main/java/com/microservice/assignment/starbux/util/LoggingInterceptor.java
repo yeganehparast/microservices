@@ -1,4 +1,4 @@
-package com.bestseller.assignment.starbux.util;
+package com.microservice.assignment.starbux.util;
 
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;

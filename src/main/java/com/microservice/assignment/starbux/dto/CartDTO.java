@@ -1,4 +1,4 @@
-package com.bestseller.assignment.starbux.dto;
+package com.microservice.assignment.starbux.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;

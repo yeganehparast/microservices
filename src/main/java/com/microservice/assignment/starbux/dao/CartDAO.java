@@ -1,6 +1,6 @@
-package com.bestseller.assignment.starbux.dao;
+package com.microservice.assignment.starbux.dao;
 
-import com.bestseller.assignment.starbux.domainentitiy.Cart;
+import com.microservice.assignment.starbux.domainentitiy.Cart;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

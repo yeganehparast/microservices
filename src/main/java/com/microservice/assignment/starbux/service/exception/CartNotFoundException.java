@@ -1,6 +1,6 @@
-package com.bestseller.assignment.starbux.service.exception;
+package com.microservice.assignment.starbux.service.exception;
 
-import com.bestseller.assignment.starbux.exception.StarbuxException;
+import com.microservice.assignment.starbux.exception.StarbuxException;
 import lombok.extern.slf4j.Slf4j;
 
 /**

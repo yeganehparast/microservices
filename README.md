@@ -1,6 +1,6 @@
 #### Backend Assignment
 
-This is the solution provided for backend technical assignment of BESTSELLER. 
+This is the solution provided for backend technical assignment demonstrating Microservices development.
 
 ###### 1- Design
 
@@ -29,4 +29,37 @@ Any string except topping in the product type definition will be considered as d
 For making order, the important thing that should be filled is the product name and client name. The rest of the fields 
 are optional. 
 
-Thanks for your review in advance!
+###### 6- Problem description
+
+starbux Coffee - Backend API
+We need a backend for our online coffee place startup, starbux coffee, where users can order
+drinks/toppings and admins can create/update/delete drinks/toppings and have access to
+reports.
+Functional Requirements
+● Develop an API that will be used to order drinks with any of the topping combinations.
+● Visitor journeys should be transparent, the current amount of the cart and the products
+should be communicated back to the caller of the API.
+● When finalizing the order, the original amount and the discounted amount should be
+communicated back to the caller of the API.
+● Reports are present with the criteria suggested in the admin API requirements.
+Drinks:
+● Black Coffee - 4 eur
+● Latte - 5 eur
+● Mocha - 6 eur
+● Tea - 3 eur
+Toppings/sides:
+● Milk - 2 eur
+● Hazelnut syrup - 3 eur
+● Chocolate sauce - 5 eur
+● Lemon - 2 eur
+Discount logic:
+● If the total of the cart is more than 12 euros, there should be a 25% discount.
+● If there are 3 or more drinks in the cart, the one with the lowest amount (including
+toppings) should be free.
+● If the cart is eligible for both promotions, the promotion with the lowest cart amount
+should be used and the other one should be ignored.
+Admin api:
+● Should be able to create/update/delete products and toppings.
+● Reports:
+○ Total amount of the orders per customer.
+○ Most used toppings for drinks.

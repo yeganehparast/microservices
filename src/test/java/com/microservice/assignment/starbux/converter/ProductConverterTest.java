@@ -1,8 +1,8 @@
-package com.bestseller.assignment.starbux.converter;
+package com.microservice.assignment.starbux.converter;
 
-import com.bestseller.assignment.starbux.domainentitiy.Product;
-import com.bestseller.assignment.starbux.domainentitiy.ProductType;
-import com.bestseller.assignment.starbux.dto.ProductDTO;
+import com.microservice.assignment.starbux.domainentitiy.Product;
+import com.microservice.assignment.starbux.domainentitiy.ProductType;
+import com.microservice.assignment.starbux.dto.ProductDTO;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

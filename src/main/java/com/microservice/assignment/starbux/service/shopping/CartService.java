@@ -1,9 +1,9 @@
-package com.bestseller.assignment.starbux.service.shopping;
+package com.microservice.assignment.starbux.service.shopping;
 
-import com.bestseller.assignment.starbux.domainentitiy.Cart;
-import com.bestseller.assignment.starbux.domainentitiy.Product;
-import com.bestseller.assignment.starbux.service.exception.OrderItemNotFoundException;
-import com.bestseller.assignment.starbux.service.exception.ToppingNotFoundException;
+import com.microservice.assignment.starbux.domainentitiy.Cart;
+import com.microservice.assignment.starbux.domainentitiy.Product;
+import com.microservice.assignment.starbux.service.exception.OrderItemNotFoundException;
+import com.microservice.assignment.starbux.service.exception.ToppingNotFoundException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.InvalidDataAccessApiUsageException;
 import org.springframework.transaction.TransactionSystemException;

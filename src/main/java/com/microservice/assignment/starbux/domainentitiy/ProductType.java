@@ -1,4 +1,4 @@
-package com.bestseller.assignment.starbux.domainentitiy;
+package com.microservice.assignment.starbux.domainentitiy;
 
 /**
  * This Enum is purposely defined to keep the type of products.

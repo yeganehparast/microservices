@@ -1,4 +1,4 @@
-package com.bestseller.assignment.starbux.aspect;
+package com.microservice.assignment.starbux.aspect;
 
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class LogAspect {
 
-    @Around("@annotation(LogMehtod)")
+    @Around("@annotation(com.microservice.assignment.starbux.aspect.LogMehtod)")
     public Object logMethod(ProceedingJoinPoint joinPoint) throws Throwable {
         log.info(String.format("method: %s has been started.", joinPoint.getSignature().toShortString()));
         try {

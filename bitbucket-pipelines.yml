@@ -21,5 +21,5 @@ pipelines:
           script:
             - curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
             - heroku container:login
-            - heroku container:push web -a starbux-for-bestseller
-            - heroku container:release web -a starbux-for-bestseller
+            - heroku container:push web -a [heroku-app-name]
+            - heroku container:release web -a [heroku-app-name]

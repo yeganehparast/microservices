@@ -1,11 +1,12 @@
-package com.bestseller.assignment.starbux.service.shopping;
+package com.microservice.assignment.starbux.service.shopping;
 
-import com.bestseller.assignment.starbux.dao.CartDAO;
-import com.bestseller.assignment.starbux.dao.OrderItmDAO;
-import com.bestseller.assignment.starbux.dao.ProductDAO;
-import com.bestseller.assignment.starbux.domainentitiy.Cart;
-import com.bestseller.assignment.starbux.domainentitiy.OrderItem;
-import com.bestseller.assignment.starbux.domainentitiy.Product;
+import com.microservice.assignment.starbux.TestUtils;
+import com.microservice.assignment.starbux.dao.CartDAO;
+import com.microservice.assignment.starbux.dao.OrderItmDAO;
+import com.microservice.assignment.starbux.dao.ProductDAO;
+import com.microservice.assignment.starbux.domainentitiy.Cart;
+import com.microservice.assignment.starbux.domainentitiy.OrderItem;
+import com.microservice.assignment.starbux.domainentitiy.Product;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,8 +17,6 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Map;
 
-import static com.bestseller.assignment.starbux.TestUtils.getPriceFromDouble;
-import static com.bestseller.assignment.starbux.TestUtils.getProductMap;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.powermock.api.mockito.PowerMockito.mock;
@@ -49,10 +48,10 @@ public class CartUnitTest {
         assertNotNull(calculateTicket.getAmount());
         assertNotNull(calculateTicket.getDiscount());
         assertNotNull(calculateTicket.getTotal());
-        BigDecimal amount = getPriceFromDouble(12.5, 3);
+        BigDecimal amount = TestUtils.getPriceFromDouble(12.5, 3);
         //25%
-        BigDecimal discount = getPriceFromDouble(3.125, 3);
-        BigDecimal total = getPriceFromDouble(12.5 - 3.125, 3);
+        BigDecimal discount = TestUtils.getPriceFromDouble(3.125, 3);
+        BigDecimal total = TestUtils.getPriceFromDouble(12.5 - 3.125, 3);
 
         assertEquals(0, amount.compareTo(calculateTicket.getAmount()));
         assertEquals(0, discount.compareTo(calculateTicket.getDiscount()));
@@ -68,10 +67,10 @@ public class CartUnitTest {
         assertNotNull(calculateTicket.getAmount());
         assertNotNull(calculateTicket.getDiscount());
         assertNotNull(calculateTicket.getTotal());
-        BigDecimal amount = getPriceFromDouble(10.5, 3);
+        BigDecimal amount = TestUtils.getPriceFromDouble(10.5, 3);
         //LOWEST DRINK AND TOPPING
-        BigDecimal discount = getPriceFromDouble(2.5, 3);
-        BigDecimal total = getPriceFromDouble(10.5 - 2.5, 3);
+        BigDecimal discount = TestUtils.getPriceFromDouble(2.5, 3);
+        BigDecimal total = TestUtils.getPriceFromDouble(10.5 - 2.5, 3);
 
         assertEquals(0, amount.compareTo(calculateTicket.getAmount()));
         assertEquals(0, discount.compareTo(calculateTicket.getDiscount()));
@@ -87,10 +86,10 @@ public class CartUnitTest {
         assertNotNull(calculateTicket.getAmount());
         assertNotNull(calculateTicket.getDiscount());
         assertNotNull(calculateTicket.getTotal());
-        BigDecimal amount = getPriceFromDouble(12.5, 3);
+        BigDecimal amount = TestUtils.getPriceFromDouble(12.5, 3);
         //LOWEST DRINK AND TOPPING
-        BigDecimal discount = getPriceFromDouble(1.5, 3);
-        BigDecimal total = getPriceFromDouble(12.5 - 1.5, 3);
+        BigDecimal discount = TestUtils.getPriceFromDouble(1.5, 3);
+        BigDecimal total = TestUtils.getPriceFromDouble(12.5 - 1.5, 3);
 
         assertEquals(0, amount.compareTo(calculateTicket.getAmount()));
         assertEquals(0, discount.compareTo(calculateTicket.getDiscount()));
@@ -98,13 +97,13 @@ public class CartUnitTest {
     }
 
     private Cart getCartTotalAmountBiggerThanTwelve() {
-        Map<String, Product> productMap = getProductMap();
-        productMap.get("cappuccino").setPrice(getPriceFromDouble(5));
-        productMap.get("espresso").setPrice(getPriceFromDouble(3));
-        productMap.get("cream").setPrice(getPriceFromDouble(2.5));
-        productMap.get("caramel").setPrice(getPriceFromDouble(2));
+        Map<String, Product> productMap = TestUtils.getProductMap();
+        productMap.get("cappuccino").setPrice(TestUtils.getPriceFromDouble(5));
+        productMap.get("espresso").setPrice(TestUtils.getPriceFromDouble(3));
+        productMap.get("cream").setPrice(TestUtils.getPriceFromDouble(2.5));
+        productMap.get("caramel").setPrice(TestUtils.getPriceFromDouble(2));
 
-        Cart cart = new Cart("Client1", getPriceFromDouble(0), getPriceFromDouble(0), getPriceFromDouble(0), new ArrayList<>());
+        Cart cart = new Cart("Client1", TestUtils.getPriceFromDouble(0), TestUtils.getPriceFromDouble(0), TestUtils.getPriceFromDouble(0), new ArrayList<>());
         cart.getItems().add(new OrderItem(cart, productMap.get("cappuccino")));
         cart.getItems().add(new OrderItem(cart, productMap.get("espresso")));
         cart.getItems().add(new OrderItem(cart, productMap.get("cream")));
@@ -113,14 +112,14 @@ public class CartUnitTest {
     }
 
     private Cart getCartWithThreeDrinks() {
-        Map<String, Product> productMap = getProductMap();
-        productMap.get("cappuccino").setPrice(getPriceFromDouble(3));
-        productMap.get("espresso").setPrice(getPriceFromDouble(2));
-        productMap.get("tea").setPrice(getPriceFromDouble(2));
-        productMap.get("caramel").setPrice(getPriceFromDouble(1));
-        productMap.get("lemon").setPrice(getPriceFromDouble(0.5));
+        Map<String, Product> productMap = TestUtils.getProductMap();
+        productMap.get("cappuccino").setPrice(TestUtils.getPriceFromDouble(3));
+        productMap.get("espresso").setPrice(TestUtils.getPriceFromDouble(2));
+        productMap.get("tea").setPrice(TestUtils.getPriceFromDouble(2));
+        productMap.get("caramel").setPrice(TestUtils.getPriceFromDouble(1));
+        productMap.get("lemon").setPrice(TestUtils.getPriceFromDouble(0.5));
 
-        Cart cart = new Cart("Client1", getPriceFromDouble(0), getPriceFromDouble(0), getPriceFromDouble(0), new ArrayList<>());
+        Cart cart = new Cart("Client1", TestUtils.getPriceFromDouble(0), TestUtils.getPriceFromDouble(0), TestUtils.getPriceFromDouble(0), new ArrayList<>());
         cart.getItems().add(new OrderItem(cart, productMap.get("cappuccino")));
         cart.getItems().add(new OrderItem(cart, productMap.get("espresso")));
         cart.getItems().add(new OrderItem(cart, productMap.get("tea")));
@@ -132,14 +131,14 @@ public class CartUnitTest {
     }
 
     private Cart getCartEqualConditions() {
-        Map<String, Product> productMap = getProductMap();
-        productMap.get("cappuccino").setPrice(getPriceFromDouble(3));
-        productMap.get("espresso").setPrice(getPriceFromDouble(2));
-        productMap.get("tea").setPrice(getPriceFromDouble(1));
-        productMap.get("caramel").setPrice(getPriceFromDouble(1));
-        productMap.get("lemon").setPrice(getPriceFromDouble(0.5));
+        Map<String, Product> productMap = TestUtils.getProductMap();
+        productMap.get("cappuccino").setPrice(TestUtils.getPriceFromDouble(3));
+        productMap.get("espresso").setPrice(TestUtils.getPriceFromDouble(2));
+        productMap.get("tea").setPrice(TestUtils.getPriceFromDouble(1));
+        productMap.get("caramel").setPrice(TestUtils.getPriceFromDouble(1));
+        productMap.get("lemon").setPrice(TestUtils.getPriceFromDouble(0.5));
 
-        Cart cart = new Cart("Client1", getPriceFromDouble(0), getPriceFromDouble(0), getPriceFromDouble(0), new ArrayList<>());
+        Cart cart = new Cart("Client1", TestUtils.getPriceFromDouble(0), TestUtils.getPriceFromDouble(0), TestUtils.getPriceFromDouble(0), new ArrayList<>());
         cart.getItems().add(new OrderItem(cart, productMap.get("cappuccino")));
         cart.getItems().add(new OrderItem(cart, productMap.get("cappuccino")));
         cart.getItems().add(new OrderItem(cart, productMap.get("espresso")));

@@ -1,4 +1,4 @@
-package com.bestseller.assignment.starbux.domainentitiy;
+package com.microservice.assignment.starbux.domainentitiy;
 
 import javax.persistence.*;
 
