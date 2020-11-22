@@ -26,7 +26,8 @@ public class ProductServiceImpl implements ProductService {
     @Override
     @LogMehtod
     public Product save(Product product) throws DataIntegrityViolationException, TransactionSystemException {
-        try {
+        //TODO     ';item-8: Don’t Log and Throw
+        try { 
             log.info(String.format("Product %s is being saved", product.getName()));
             return productDAO.save(product);
         } catch (DataIntegrityViolationException e) {
@@ -41,6 +42,12 @@ public class ProductServiceImpl implements ProductService {
     @Override
     @LogMehtod
     public Product update(Product product) throws ConstraintViolationException {
+        /*
+        TODO better way would be like this.
+        log.info("Product {} is being updated", product.getName());
+        Because slf4j does not calculate the string when the log level is below info.
+        But in what you wrote it is calculated anyway. https://www.xspdf.com/help/50026885.html
+         */
         log.info(String.format("Product %s is being updated", product.getName()));
         Product dbObject = findByName(product.getName());
         product.setId(dbObject.getId());

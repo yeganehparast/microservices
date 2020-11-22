@@ -88,9 +88,14 @@ public class CartServiceImpl implements CartService {
     @LogMehtod
     public Product getPopularTopping() throws ToppingNotFoundException {
         log.info("Finding popular topping");
+        /*
+        TODO This is better to be done in the database or DAO (e.g. use findBy of JpaRepository). With the big databases could be problematic.
+        Because I guess the dao.findAll() is executed regardless of what we have in filter
+         */
         Map<String, List<OrderItem>> grouped = StreamSupport.stream(orderItmDAO.findAll().spliterator(), false).
                 filter(i -> i.getProduct().getProductType() == TOPPING.ordinal()).
                 collect(Collectors.groupingBy(i -> i.getProduct().getName()));
+        //TODO I guess it is also could be done with lambda expressions
         int max = Integer.MIN_VALUE;
         Product product = null;
         for (Map.Entry<String, List<OrderItem>> item : grouped.entrySet()) {
