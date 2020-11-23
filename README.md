@@ -79,3 +79,5 @@ Admin api:
     ● Reports:
         ○ Total amount of the orders per customer.
         ○ Most used toppings for drinks.
+        
+        
