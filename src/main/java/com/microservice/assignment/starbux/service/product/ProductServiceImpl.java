@@ -1,9 +1,9 @@
-package com.bestseller.assignment.starbux.service.product;
+package com.microservice.assignment.starbux.service.product;
 
-import com.bestseller.assignment.starbux.aspect.LogMehtod;
-import com.bestseller.assignment.starbux.dao.ProductDAO;
-import com.bestseller.assignment.starbux.domainentitiy.Product;
-import com.bestseller.assignment.starbux.service.exception.ProductNotFoundException;
+import com.microservice.assignment.starbux.aspect.LogMehtod;
+import com.microservice.assignment.starbux.dao.ProductDAO;
+import com.microservice.assignment.starbux.domainentitiy.Product;
+import com.microservice.assignment.starbux.service.exception.ProductNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.dao.DataIntegrityViolationException;

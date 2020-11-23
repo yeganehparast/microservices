@@ -1,16 +1,16 @@
-package com.bestseller.assignment.starbux.service.shopping;
+package com.microservice.assignment.starbux.service.shopping;
 
-import com.bestseller.assignment.starbux.aspect.LogMehtod;
-import com.bestseller.assignment.starbux.dao.CartDAO;
-import com.bestseller.assignment.starbux.dao.OrderItmDAO;
-import com.bestseller.assignment.starbux.dao.ProductDAO;
-import com.bestseller.assignment.starbux.domainentitiy.Cart;
-import com.bestseller.assignment.starbux.domainentitiy.OrderItem;
-import com.bestseller.assignment.starbux.domainentitiy.Product;
-import com.bestseller.assignment.starbux.domainentitiy.ProductType;
-import com.bestseller.assignment.starbux.service.exception.CartNotFoundException;
-import com.bestseller.assignment.starbux.service.exception.OrderItemNotFoundException;
-import com.bestseller.assignment.starbux.service.exception.ToppingNotFoundException;
+import com.microservice.assignment.starbux.aspect.LogMehtod;
+import com.microservice.assignment.starbux.dao.CartDAO;
+import com.microservice.assignment.starbux.dao.OrderItmDAO;
+import com.microservice.assignment.starbux.dao.ProductDAO;
+import com.microservice.assignment.starbux.domainentitiy.Cart;
+import com.microservice.assignment.starbux.domainentitiy.OrderItem;
+import com.microservice.assignment.starbux.domainentitiy.Product;
+import com.microservice.assignment.starbux.domainentitiy.ProductType;
+import com.microservice.assignment.starbux.service.exception.CartNotFoundException;
+import com.microservice.assignment.starbux.service.exception.OrderItemNotFoundException;
+import com.microservice.assignment.starbux.service.exception.ToppingNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.InvalidDataAccessApiUsageException;
@@ -26,8 +26,8 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
-import static com.bestseller.assignment.starbux.domainentitiy.ProductType.DRINK;
-import static com.bestseller.assignment.starbux.domainentitiy.ProductType.TOPPING;
+import static com.microservice.assignment.starbux.domainentitiy.ProductType.DRINK;
+import static com.microservice.assignment.starbux.domainentitiy.ProductType.TOPPING;
 
 /**
  * This class is the implementation of the CartService
